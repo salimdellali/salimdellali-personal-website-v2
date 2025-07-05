@@ -1,0 +1,336 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+
+    /* Section-specific colors - Light theme */
+    --hero-color: 217.2 91.2% 59.8%; /* Blue */
+    --about-color: 217.2 91.2% 59.8%; /* Blue */
+    --projects-color: 142.1 76.2% 36.3%; /* Green */
+    --skills-color: 262.1 83.3% 57.8%; /* Purple */
+    --experience-color: 32.1 94.6% 43.7%; /* Orange */
+    --contact-color: 322.2 84.0% 60.5%; /* Pink */
+
+    /* Section background colors (light theme) */
+    --hero-bg-color: 217.2 50% 97%; /* Very Light Blue */
+    --about-bg-color: 217.2 50% 97%; /* Very Light Blue */
+    --projects-bg-color: 142.1 30% 97%; /* Very Light Green */
+    --skills-bg-color: 262.1 30% 97%; /* Very Light Purple */
+    --experience-bg-color: 32.1 40% 97%; /* Very Light Orange */
+    --contact-bg-color: 322.2 30% 97%; /* Very Light Pink */
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 94.0%;
+
+    /* Section-specific colors - Dark theme */
+    --hero-color: 217.2 91.2% 69.8%; /* Lighter Blue for dark theme */
+    --about-color: 217.2 91.2% 69.8%; /* Lighter Blue for dark theme */
+    --projects-color: 142.1 76.2% 46.3%; /* Lighter Green for dark theme */
+    --skills-color: 262.1 83.3% 67.8%; /* Lighter Purple for dark theme */
+    --experience-color: 32.1 94.6% 53.7%; /* Lighter Orange for dark theme */
+    --contact-color: 322.2 84.0% 70.5%; /* Lighter Pink for dark theme */
+
+    /* Section background colors (dark theme) */
+    --hero-bg-color: 217.2 30% 8%; /* Dark Blue */
+    --about-bg-color: 217.2 30% 8%; /* Dark Blue */
+    --projects-bg-color: 142.1 25% 8%; /* Dark Green */
+    --skills-bg-color: 262.1 25% 8%; /* Dark Purple */
+    --experience-bg-color: 32.1 30% 8%; /* Dark Orange */
+    --contact-bg-color: 322.2 25% 8%; /* Dark Pink */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .animate-in {
+    animation-fill-mode: both;
+  }
+
+  .fade-in-0 {
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  .slide-in-from-bottom-4 {
+    animation: slideInFromBottom 0.6s ease-out;
+  }
+
+  .slide-in-from-left-4 {
+    animation: slideInFromLeft 0.6s ease-out;
+  }
+
+  .slide-in-from-right-4 {
+    animation: slideInFromRight 0.6s ease-out;
+  }
+
+  .slide-in-from-top-2 {
+    animation: slideInFromTop 0.3s ease-out;
+  }
+
+  .zoom-in-50 {
+    animation: zoomIn 0.5s ease-out;
+  }
+
+  /* Section-specific accent colors */
+  .hero-accent {
+    color: hsl(var(--hero-color));
+  }
+  .hero-bg {
+    background-color: hsl(var(--hero-color));
+  }
+  .hero-border {
+    border-color: hsl(var(--hero-color));
+  }
+  .hero-section-bg {
+    background-color: hsl(var(--hero-bg-color));
+  }
+
+  .about-accent {
+    color: hsl(var(--about-color));
+  }
+  .about-bg {
+    background-color: hsl(var(--about-color));
+  }
+  .about-border {
+    border-color: hsl(var(--about-color));
+  }
+  .about-section-bg {
+    background-color: hsl(var(--about-bg-color));
+  }
+
+  .projects-accent {
+    color: hsl(var(--projects-color));
+  }
+  .projects-bg {
+    background-color: hsl(var(--projects-color));
+  }
+  .projects-border {
+    border-color: hsl(var(--projects-color));
+  }
+  .projects-section-bg {
+    background-color: hsl(var(--projects-bg-color));
+  }
+
+  .skills-accent {
+    color: hsl(var(--skills-color));
+  }
+  .skills-bg {
+    background-color: hsl(var(--skills-color));
+  }
+  .skills-border {
+    border-color: hsl(var(--skills-color));
+  }
+  .skills-section-bg {
+    background-color: hsl(var(--skills-bg-color));
+  }
+
+  .experience-accent {
+    color: hsl(var(--experience-color));
+  }
+  .experience-bg {
+    background-color: hsl(var(--experience-color));
+  }
+  .experience-border {
+    border-color: hsl(var(--experience-color));
+  }
+  .experience-section-bg {
+    background-color: hsl(var(--experience-bg-color));
+  }
+
+  .contact-accent {
+    color: hsl(var(--contact-color));
+  }
+  .contact-bg {
+    background-color: hsl(var(--contact-color));
+  }
+  .contact-border {
+    border-color: hsl(var(--contact-color));
+  }
+  .contact-section-bg {
+    background-color: hsl(var(--contact-bg-color));
+  }
+
+  /* Horizontal gradient separators that blend section backgrounds */
+  .gradient-separator {
+    height: 80px;
+    width: 100%;
+    position: relative;
+  }
+
+  .hero-to-about {
+    background: linear-gradient(
+      to bottom,
+      hsl(var(--hero-bg-color)) 0%,
+      hsl(var(--hero-bg-color) / 0.8) 25%,
+      hsl(var(--about-bg-color) / 0.8) 75%,
+      hsl(var(--about-bg-color)) 100%
+    );
+  }
+
+  .about-to-projects {
+    background: linear-gradient(
+      to bottom,
+      hsl(var(--about-bg-color)) 0%,
+      hsl(var(--about-bg-color) / 0.8) 20%,
+      hsl(var(--projects-bg-color) / 0.8) 80%,
+      hsl(var(--projects-bg-color)) 100%
+    );
+  }
+
+  .projects-to-skills {
+    background: linear-gradient(
+      to bottom,
+      hsl(var(--projects-bg-color)) 0%,
+      hsl(var(--projects-bg-color) / 0.8) 20%,
+      hsl(var(--skills-bg-color) / 0.8) 80%,
+      hsl(var(--skills-bg-color)) 100%
+    );
+  }
+
+  .skills-to-experience {
+    background: linear-gradient(
+      to bottom,
+      hsl(var(--skills-bg-color)) 0%,
+      hsl(var(--skills-bg-color) / 0.8) 20%,
+      hsl(var(--experience-bg-color) / 0.8) 80%,
+      hsl(var(--experience-bg-color)) 100%
+    );
+  }
+
+  .experience-to-contact {
+    background: linear-gradient(
+      to bottom,
+      hsl(var(--experience-bg-color)) 0%,
+      hsl(var(--experience-bg-color) / 0.8) 20%,
+      hsl(var(--contact-bg-color) / 0.8) 80%,
+      hsl(var(--contact-bg-color)) 100%
+    );
+  }
+
+  /* Enhanced text contrast utilities */
+  .text-high-contrast {
+    color: hsl(var(--foreground));
+    font-weight: 600;
+  }
+
+  .text-section-contrast {
+    color: hsl(var(--foreground));
+    font-weight: 500;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
